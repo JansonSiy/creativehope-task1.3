@@ -31,14 +31,57 @@ Join - join the array elements into a string given a parameter
 
 // FILL OUT THE FUNCTIONS *****************
 
+// const $ = {
+//   filter: function () {},
+//   map: function () {},
+//   reduce: function () {},
+//   head: function () {},
+//   tail: function () {},
+//   join: function () {}
+// };
+
 const $ = {
-  filter: function () {},
-  map: function () {},
-  reduce: function () {},
-  head: function () {},
-  tail: function () {},
-  join: function () {}
-};
+    filter: function (Array) {
+        let filtered = Array.filter(function(value) {
+            return value < 2;
+        });
+
+        console.log(filtered);
+    },
+    map: function (Array) {
+        let map = Array.map(x => x + 3);
+
+        console.log(map);
+    },
+    reduce: function (Array) {
+        let sum = Array.reduce((accumulator, currentValue) => {
+            return (accumulator + currentValue);
+        }, 0);
+
+        console.log(sum);
+
+        let sumIsTen = Array.reduce((accumulator, currentValue) => {
+            return (accumulator + currentValue);
+        }, 4);
+
+        console.log(sumIsTen);
+    },
+    head: function (Array) {
+        let first = Array[0];
+
+        console.log(first);
+    },
+    tail: function (Array) {
+        let tail = Array[Array.length-1];
+
+        console.log(tail);
+    },
+    join: function (Array) {
+        let joined = Array.join('-');
+
+        console.log(joined.toString());
+    }
+  };
 
 // *****************************************
 
