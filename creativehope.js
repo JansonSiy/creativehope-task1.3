@@ -31,55 +31,65 @@ Join - join the array elements into a string given a parameter
 
 // FILL OUT THE FUNCTIONS *****************
 
-// const $ = {
-//   filter: function () {},
-//   map: function () {},
-//   reduce: function () {},
-//   head: function () {},
-//   tail: function () {},
-//   join: function () {}
-// };
-
 const $ = {
-    filter: function (Array) {
-        let filtered = Array.filter(function(value) {
-            return value < 2;
-        });
+    filter: function (array, filterFunction) {
+      let filteredArr = [];
 
-        console.log(filtered);
+      for (let i = 0; i < array.length; i++) {
+        if (filterFunction(array[i])) {
+            filteredArr.push(array[i]);
+        };
+      };
+
+      // console.log(filteredArr);
+      return filteredArr;
     },
-    map: function (Array) {
-        let map = Array.map(x => x + 3);
+    map: function (array, mapFunction) {
+      let mappedArr = [];
 
-        console.log(map);
+      for (let i = 0; i < array.length; i++) {
+        mappedArr.push(mapFunction(array[i]));
+      };
+
+      // console.log (mappedArr);
+      return mappedArr;
     },
-    reduce: function (Array) {
-        let sum = Array.reduce((accumulator, currentValue) => {
-            return (accumulator + currentValue);
-        }, 0);
+    reduce: function (array, reduceFunction, initialValue) {
+      let sum = 0;
 
-        console.log(sum);
+      for (let i = 0; i < array.length; i++) {
+        reduceFunction(array[i]);
 
-        let sumIsTen = Array.reduce((accumulator, currentValue) => {
-            return (accumulator + currentValue);
-        }, 4);
+        sum += array[i];
+      };
+      
+      // console.log(sum);
+      return(sum);
 
-        console.log(sumIsTen);
+      // console.log(sum + initialValue);
+      // return(sum + initialValue);
     },
-    head: function (Array) {
-        let first = Array[0];
+    head: function (array) {
+        let first = array[0];
 
-        console.log(first);
+        // console.log(first);
+        return first;
     },
-    tail: function (Array) {
-        let tail = Array[Array.length-1];
+    tail: function (array) {
+        let last = array[array.length-1];
 
-        console.log(tail);
+        // console.log(last);
+        return last;
     },
-    join: function (Array) {
-        let joined = Array.join('-');
+    join: function (array, seperator) {
+        let joinedString = "";
 
-        console.log(joined.toString());
+        for (let i = 0; i < array.length; i++) {
+          joinedString += array[i] + seperator;
+        };
+        
+        // console.log(joinedString.slice(0, -1));
+        return joinedString.slice(0, -1);
     }
   };
 
